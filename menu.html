@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Pizza Palace</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="logo">Pizza Palace</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html" style="color:var(--primary-color)">Menu</a></li>
+            <li><a href="history.html">Our History</a></li>
+            <li class="cart-icon-wrapper">🛒 <span id="cart-count">0</span></li>
+            <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+        </ul>
+    </nav>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <span id="close-cart" class="close-cart">&times;</span>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+            <button id="checkout-btn" class="btn-whatsapp">Order on WhatsApp <span>➤</span></button>
+        </div>
+    </div>
+
+    <section class="menu-section hidden">
+        <h1 style="text-align: center; margin-bottom: 3rem;">Our Menu</h1>
+
+        <div class="menu-category">
+            <h3>Classic Pizzas</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=80" alt="Margherita" class="menu-img">
+                    <div class="menu-info">
+                        <h4>Classic Margherita</h4>
+                        <p class="price">$12.99</p>
+                        <p>San Marzano tomato sauce, fresh mozzarella di bufala, basil, EVOO.</p>
+                        <button class="btn-add" data-name="Margherita Pizza" data-price="12.99">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500&q=80" alt="Pepperoni" class="menu-img">
+                    <div class="menu-info">
+                        <h4>Double Pepperoni</h4>
+                        <p class="price">$15.99</p>
+                        <p>Crispy pepperoni cups, mozzarella, hot honey drizzle.</p>
+                        <button class="btn-add" data-name="Pepperoni Pizza" data-price="15.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Fresh Pasta</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1626844131082-256783844137?auto=format&fit=crop&w=500&q=80" alt="Carbonara" class="menu-img">
+                    <div class="menu-info">
+                        <h4>Roman Carbonara</h4>
+                        <p class="price">$18.99</p>
+                        <p>Guanciale, pecorino romano, egg yolk, black pepper.</p>
+                        <button class="btn-add" data-name="Carbonara" data-price="18.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Pizza Palace. All rights reserved.</p>
+        <button class="admin-btn">Admin Login</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

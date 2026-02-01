@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Palace | Rustic Italian Luxury</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="logo">Pizza Palace</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="history.html">Our History</a></li>
+            <li class="cart-icon-wrapper">
+                🛒 <span id="cart-count">0</span>
+            </li>
+            <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+        </ul>
+    </nav>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <span id="close-cart" class="close-cart">&times;</span>
+        </div>
+        <div class="cart-items">
+            </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+            <button id="checkout-btn" class="btn-whatsapp">Order on WhatsApp <span>➤</span></button>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content hidden">
+            <h1>A Slice of Italy</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Authentic flavors, rustic charm, and the finest ingredients.</p>
+            <a href="menu.html"><button class="btn-cta">Order Now</button></a>
+        </div>
+    </header>
+
+    <section class="features hidden">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔥</div>
+                <h3>Wood Fired</h3>
+                <p>Cooked to perfection in our traditional Neapolitan ovens.</p>
+            </div>
+            <div class="feature-icon">🌿</div>
+                <h3>Fresh Basil</h3>
+                <p>We grow our own herbs to ensure the freshest taste.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧀</div>
+                <h3>Artisan Cheese</h3>
+                <p>Hand-pulled Mozzarella made daily in-house.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews hidden" style="background-color: var(--nav-bg);">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Customer Love</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; font-style: italic;">"The best Margherita I've had outside of Naples. The crust is to die for!"</p>
+            <h4 style="margin-top: 1rem; color: var(--primary-color);">- Sarah Johnson</h4>
+            <div style="color: gold; margin-top: 0.5rem;">★★★★★</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="socials">
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2026 Pizza Palace. All rights reserved.</p>
+        <button class="admin-btn">Admin Login</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -258,9 +258,22 @@
 
         @keyframes popUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @media (max-width: 768px) { 
+       @media (max-width: 768px) { 
             .hero h1 { font-size: 3.5rem; } 
-            .menu-section { margin-top: -80px; padding-top: 140px; } 
+            
+            /* ADJUSTED: Reduced padding to bring menu up */
+            .menu-section { 
+                margin-top: -80px; 
+                padding-top: 80px; /* Was 140px */
+            } 
+            
+            /* ADJUSTED: Reduced margin above the category title */
+            .category-header {
+                font-size: 2.5rem;
+                margin-top: 10px; /* Was 60px */
+                margin-bottom: 20px;
+            }
+
             .hero-img-container { width: 70vw; }
             .section-title { font-size: 2.5rem; }
             .footer-content { grid-template-columns: 1fr; }

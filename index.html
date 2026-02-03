@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Palace | The Royal Taste</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -52,14 +52,17 @@
         }
         
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        .logo-video { 
+        
+        .logo-img { 
             height: 100px; width: 100px; border-radius: 50%;
             object-fit: cover; border: 3px solid var(--orange); 
             box-shadow: 0 0 20px rgba(255, 159, 28, 0.6); transition: 0.3s;
         }
-        .logo-video:hover { transform: scale(1.05); }
-        .logo-text { font-family: 'Yellowtail', cursive; color: var(--orange); font-size: 2rem; font-weight: bold; }
+        .logo-img:hover { transform: scale(1.05); }
+
+        .logo-text { font-family: 'Yellowtail', cursive; color: var(--orange); font-size: 1.8rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
         .logo-text span { color: var(--text-main); }
+        .logo-tagline { font-family: var(--font-body); font-size: 1rem; color: var(--text-main); font-weight: normal; margin-left: 5px; border-left: 2px solid var(--orange); padding-left: 10px; }
         
         .nav-actions { display: flex; align-items: center; gap: 15px; }
         .theme-btn {
@@ -88,15 +91,37 @@
             text-align: center;
         }
         .hero h1 { font-family: var(--font-head); font-size: 5rem; color: var(--text-main); line-height: 1; z-index: 2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { color: var(--orange); letter-spacing: 3px; margin-top: 10px; font-weight: bold; z-index: 2; }
-        .hero-img-container { width: 50vw; max-width: 600px; margin-top: 20px; z-index: 5; animation: float 6s ease-in-out infinite; }
+        .hero p.hero-sub { color: var(--orange); letter-spacing: 3px; margin-top: 10px; font-weight: bold; z-index: 2; text-transform: uppercase; }
+
+        .hero-img-container { 
+            width: 50vw; max-width: 600px; 
+            margin-top: 20px; 
+            z-index: 5; 
+            animation: float 6s ease-in-out infinite; 
+        }
         .hero-pizza { width: 100%; height: auto; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6)); }
+
+        /* CENTERED TEXT BELOW PIZZA */
+        .hero-bottom-text {
+            font-family: var(--font-body);
+            color: var(--orange);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 40px; /* Space between text and the blog/menu section */
+            text-align: center;
+            z-index: 5;
+            max-width: 90%;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            letter-spacing: 0.5px;
+        }
+
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
         /* --- 5. MENU SECTION --- */
         .menu-section {
             position: relative; background-color: var(--orange);
-            margin-top: -150px; padding-top: 180px; padding-bottom: 80px; z-index: 1;
+            margin-top: -150px; padding-top: 180px; padding-bottom: 80px; z-index: 3;
         }
         .jagged-top {
             position: absolute; top: 0; left: 0; width: 100%; height: 200px;
@@ -124,9 +149,9 @@
         .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
         .card-img { 
             width: 100%; 
-            height: 200px;       /* Increased height slightly for better visibility */
-            object-fit: contain; /* This forces the WHOLE image to show without cutting */
-            background: #111;    /* Optional: Matches card bg so empty space isn't white */
+            height: 200px;       
+            object-fit: contain; 
+            background: #111;    
         }
         .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; flex-grow: 1; }
         .card-select {
@@ -140,7 +165,7 @@
         .btn-cust { background: transparent; border: 1px solid var(--text-main); color: var(--text-main); padding: 7px 15px; border-radius: 20px; font-size: 0.8rem; margin-right: 5px; cursor: pointer; }
 
         /* --- 6. BLOG SECTION --- */
-        .blog-section { padding: 80px 20px; background: var(--section-bg-dark); position: relative; z-index: 2; }
+        .blog-section { padding: 80px 20px; background: var(--section-bg-dark); position: relative; z-index: 1; }
         .section-title { text-align: center; font-size: 3rem; color: var(--orange); margin-bottom: 40px; }
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
         .blog-card { background: var(--bg-card); padding: 30px; border-radius: 15px; box-shadow: var(--shadow); }
@@ -275,10 +300,15 @@
             }
 
             .hero-img-container { width: 70vw; }
+            /* Mobile adjustments for the side-by-side text */
+            .hero-layout-row { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-side-text { text-align: center; width: 90%; font-size: 1.2rem; }
+
             .section-title { font-size: 2.5rem; }
             .footer-content { grid-template-columns: 1fr; }
             .palace-img { height: 200px; }
-            .logo-video { height: 70px; width: 70px; } 
+            .logo-img { height: 70px; width: 70px; } 
+            .logo-tagline { display: none; } /* Hide the royal taste tagline on very small screens if needed, or adjust size */
         }
     </style>
 </head>
@@ -338,8 +368,11 @@
 
     <nav class="navbar">
         <div class="logo-container">
-            <video class="logo-video" autoplay loop muted playsinline><source src="4.mp4" type="video/mp4"></video>
-            <div class="logo-text">PIZZA <span>PALACE</span></div>
+            <img class="logo-img" src="logo.jpg" alt="Pizza Palace Logo">
+            <div class="logo-text">
+                PIZZA <span>PALACE</span> 
+                <span class="logo-tagline">| The Royal Taste</span>
+            </div>
         </div>
         <div class="nav-actions">
             <button class="theme-btn" onclick="openAdminLogin()" title="Admin Login"><i class="fas fa-user-shield"></i></button>
@@ -349,17 +382,17 @@
     </nav>
 
     <header class="hero">
-        <p>CHOOSE HOW YOU WANT TO BUY</p>
-        <h1>WELCOME TO PIZZA</h1>
+        <p class="hero-sub"> REAL TASTE WITH QUALITY</p>
+        <h1>WELCOME TO PIZZA PALACE</h1>
+        
         <div class="hero-img-container">
             <img class="hero-pizza" src="https://png.pngtree.com/png-clipart/20230412/original/pngtree-modern-kitchen-food-boxed-cheese-lunch-pizza-png-image_9048155.png" alt="Floating Pizza">
         </div>
+        
+        <div class="hero-bottom-text">
+            Fresh dough and 100% real mozzarella used for making
+        </div>
     </header>
-
-    <section class="menu-section">
-        <div class="jagged-top"></div>
-        <div class="container" id="main-menu-container"></div>
-    </section>
 
     <section class="blog-section">
         <h2 class="section-title">OUR HERITAGE</h2>
@@ -383,6 +416,11 @@
                 <div id="cheese-hin" class="tab-content"><p>पनीर का इतिहास सभ्यता जितना ही पुराना है, जो लिखित इतिहास से भी पहले का है। ऐसा माना जाता है कि इसकी खोज लगभग 8000 ईसा पूर्व में गलती से हुई थी, संभवतः उपजाऊ क्रिसेंट में खानाबदोश चरवाहों द्वारा। जब वे जानवरों के पेट से बने बर्तनों में दूध ले जाते थे, तो स्वाभाविक रूप से होने वाले रेनेट एंजाइम, यात्रा की गर्मी के साथ मिलकर, दूध को फाड़ देते थे, जिससे वह दही और मट्ठे में अलग हो जाता था। इस सुखद दुर्घटना ने न केवल दूध को संरक्षित किया बल्कि एक पोषक तत्वों से भरपूर, यात्रा के लिए तैयार भोजन स्रोत भी बनाया। रोमन साम्राज्य के समय तक, पनीर बनाना एक परिष्कृत कला के रूप में विकसित हो गया था, जिसमें रोमनों ने उम्र बढ़ने की प्रक्रियाओं को शुरू किया और पूरे यूरोप में तकनीकों का प्रसार किया। मध्य युग में मठों ने इन तरीकों को और परिष्कृत किया, जिससे आज हम जिन क्लासिक किस्मों को पसंद करते हैं, उनमें से कई का जन्म हुआ। नरम ब्री से लेकर सख्त परमेसन तक, पनीर दूध के साधारण उपहार को संरक्षित करने में मानवीय सरलता का प्रमाण बना हुआ है।</p></div>
             </div>
         </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="jagged-top"></div>
+        <div class="container" id="main-menu-container"></div>
     </section>
 
     <section class="palace-section">
@@ -460,7 +498,7 @@
         ];
 
         const defaultMenu = [
-            // PIZZA MINIA
+            // PIZZA MINIA(MINI PIZZA-5 INCH)
             { id: 101, name: "Single Onion", cat: "Pizza Minia", price: 79, img: "onion.jpg" },
             { id: 102, name: "Tangy Tomato", cat: "Pizza Minia", price: 79, img: "tangy.jpg" },
             { id: 103, name: "Corn King", cat: "Pizza Minia", price: 99, img: "king.jpg" },

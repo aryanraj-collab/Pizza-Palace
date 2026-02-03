@@ -123,11 +123,11 @@
         .card-img { width: 100%; height: 180px; object-fit: cover; }
         .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
         .card-img { 
-    width: 100%; 
-    height: 200px;       /* Increased height slightly for better visibility */
-    object-fit: contain; /* This forces the WHOLE image to show without cutting */
-    background: #111;    /* Optional: Matches card bg so empty space isn't white */
-}
+            width: 100%; 
+            height: 200px;       /* Increased height slightly for better visibility */
+            object-fit: contain; /* This forces the WHOLE image to show without cutting */
+            background: #111;    /* Optional: Matches card bg so empty space isn't white */
+        }
         .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; flex-grow: 1; }
         .card-select {
             width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 5px;
@@ -380,7 +380,6 @@
                 <div class="blog-tabs"><button class="tab-btn active" onclick="openTab(event, 'cheese-eng')">English</button><button class="tab-btn" onclick="openTab(event, 'cheese-hin')">हिंदी</button></div>
                 <div id="cheese-eng" class="tab-content active"><p>The history of cheese is a tale as old as civilization itself, predating recorded history. It is believed to have been discovered accidentally around 8000 BCE, likely by nomadic herdsmen in the Fertile Crescent. As they transported milk in containers made from the stomachs of ruminants, the naturally occurring rennet enzymes, combined with the heat of the journey, caused the milk to curdle, separating into curds and whey. This happy accident not only preserved the milk but created a nutrient-dense, travel-ready food source. By the time of the Roman Empire, cheesemaking had evolved into a sophisticated art form, with the Romans introducing aging processes and spreading techniques across Europe. Monasteries in the Middle Ages further refined these methods, giving rise to many of the classic varieties we cherish today. From soft bries to hard parmesans, cheese remains a testament to human ingenuity in preserving the simple gift of milk.</p>
                 </div>
-            </div>
                 <div id="cheese-hin" class="tab-content"><p>पनीर का इतिहास सभ्यता जितना ही पुराना है, जो लिखित इतिहास से भी पहले का है। ऐसा माना जाता है कि इसकी खोज लगभग 8000 ईसा पूर्व में गलती से हुई थी, संभवतः उपजाऊ क्रिसेंट में खानाबदोश चरवाहों द्वारा। जब वे जानवरों के पेट से बने बर्तनों में दूध ले जाते थे, तो स्वाभाविक रूप से होने वाले रेनेट एंजाइम, यात्रा की गर्मी के साथ मिलकर, दूध को फाड़ देते थे, जिससे वह दही और मट्ठे में अलग हो जाता था। इस सुखद दुर्घटना ने न केवल दूध को संरक्षित किया बल्कि एक पोषक तत्वों से भरपूर, यात्रा के लिए तैयार भोजन स्रोत भी बनाया। रोमन साम्राज्य के समय तक, पनीर बनाना एक परिष्कृत कला के रूप में विकसित हो गया था, जिसमें रोमनों ने उम्र बढ़ने की प्रक्रियाओं को शुरू किया और पूरे यूरोप में तकनीकों का प्रसार किया। मध्य युग में मठों ने इन तरीकों को और परिष्कृत किया, जिससे आज हम जिन क्लासिक किस्मों को पसंद करते हैं, उनमें से कई का जन्म हुआ। नरम ब्री से लेकर सख्त परमेसन तक, पनीर दूध के साधारण उपहार को संरक्षित करने में मानवीय सरलता का प्रमाण बना हुआ है।</p></div>
             </div>
         </div>
@@ -502,14 +501,20 @@
             { id: 603, name: "Paneer Garlic Bread", cat: "Sides & Garlic Bread", price: 109, img: "paneergarlic.jpg" },
             { id: 604, name: "Paneer Corn Garlic Bread", cat: "Sides & Garlic Bread", price: 119, img: "corngarlic.jpg" },
             { id: 605, name: "Loaded Garlic Bread", cat: "Sides & Garlic Bread", price: 129, img: "loaded.jpg" },
-            { id: 606, name: "Masala French Fries", cat: "Sides & Garlic Bread", price: 69, img: "masalafrench.jpg", desc:"Reg:69 / Med:119 / Lrg:159" },
+            
+            // --- UPDATED FRIES (Now with Variants) ---
+            { id: 606, name: "Masala French Fries", cat: "Sides & Garlic Bread", img: "masalafrench.jpg", variants: {"Regular":69, "Medium":119, "Large":159} },
+            
             { id: 607, name: "Pizza Palace Parcel", cat: "Sides & Garlic Bread", price: 45, img: "parcel.jpg", desc: "Special Veg Parcel" },
             { id: 608, name: "Special Dip", cat: "Sides & Garlic Bread", price: 15, img: "dip.jpg", desc:"Reg:15 / Med:25 / Lrg:35" },
-            // SWEETS (Filtered)
+            // SWEETS
             { id: 701, name: "Choco Lava Cake", cat: "Special Sweet", img: "chocolava.jpg", variants: {"100gm":55, "250gm":110} },
             { id: 703, name: "Brownie with Ice-Cream", cat: "Special Sweet", price: 55, img: "brownie.jpg" },
-            { id: 704, name: "Vanilla Ice-Cream", cat: "Special Sweet", price: 40, img: "vanila.jpg", desc:"100ml:40 / 200ml:70" },
-            { id: 705, name: "Butter Scotch Ice-Cream", cat: "Special Sweet", price: 40, img: "butter.jpg", desc:"100ml:40 / 200ml:70" },
+            
+            // --- UPDATED ICE CREAMS (Now with Variants) ---
+            { id: 704, name: "Vanilla Ice-Cream", cat: "Special Sweet", img: "vanila.jpg", variants: {"100ml":40, "200ml":70} },
+            { id: 705, name: "Butter Scotch Ice-Cream", cat: "Special Sweet", img: "butter.jpg", variants: {"100ml":40, "200ml":70} },
+            
             // DRINKS
             { id: 501, name: "Hot Coffee", cat: "Shakes & Drinks", price: 25, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" },
             { id: 502, name: "Cold Coffee", cat: "Shakes & Drinks", price: 79, img: "cold.jpg" },

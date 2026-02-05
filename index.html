@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Palace | The Royal Taste</title>
+    <title>Pizza Palace | The Real Taste</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -60,8 +60,6 @@
         }
         .logo-img:hover { transform: scale(1.05); }
 
-        /* --- FONT SWAP HERE --- */
-        /* Pizza Palace is now Bebas Neue (Header font) */
         .logo-text { 
             font-family: var(--font-head); 
             color: var(--orange); 
@@ -74,7 +72,6 @@
         }
         .logo-text span { color: var(--text-main); }
         
-        /* Tagline is now Yellowtail (Script font) */
         .logo-tagline { 
             font-family: 'Yellowtail', cursive; 
             font-size: 1.5rem; 
@@ -83,7 +80,7 @@
             margin-left: 5px; 
             border-left: 2px solid var(--orange); 
             padding-left: 10px; 
-            text-transform: none; /* Ensure script isn't forced uppercase */
+            text-transform: none; 
             letter-spacing: 0;
         }
         
@@ -114,7 +111,7 @@
             text-align: center;
         }
         .hero h1 { font-family: var(--font-head); font-size: 5rem; color: var(--text-main); line-height: 1; z-index: 2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p.hero-sub { color: var(--orange); letter-spacing: 3px; margin-top: 10px; font-weight: bold; z-index: 2; text-transform: uppercase; }
+        /* Removed hero-sub p tag as requested to move text to navbar */
 
         .hero-img-container { 
             width: 50vw; max-width: 600px; 
@@ -124,27 +121,31 @@
         }
         .hero-pizza { width: 100%; height: auto; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6)); }
 
+        /* CENTERED TEXT BELOW PIZZA - UPDATED COLOR TO BLACK */
         .hero-bottom-text {
             font-family: var(--font-body);
-            color: var(--orange);
-            font-size: 1.6rem;
-            font-weight: 600;
+            color: #000000; /* CHANGED TO BLACK */
+            font-size: 1.8rem; /* Slightly larger for visibility */
+            font-weight: 700;
             margin-top: 30px;
-            margin-bottom: 60px; /* Increased bottom margin to push into menu section properly */
+            margin-bottom: 60px; 
             text-align: center;
             z-index: 5;
             max-width: 90%;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            text-shadow: 0px 0px 20px rgba(255, 159, 28, 0.8); /* Added glow for contrast against dark bg */
             letter-spacing: 0.5px;
+            background: rgba(255, 159, 28, 0.9); /* Small background to ensure readability */
+            padding: 10px 20px;
+            border-radius: 50px;
         }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-        /* --- 5. MENU SECTION (Restored to Full Width / Overlapping Hero) --- */
+        /* --- 5. MENU SECTION --- */
         .menu-section {
             position: relative; 
             background-color: var(--orange);
-            margin-top: -100px; /* Overlap the hero */
+            margin-top: -100px; 
             padding-top: 140px; 
             padding-bottom: 80px; 
             z-index: 3;
@@ -186,31 +187,55 @@
         .btn-add { background: var(--text-main); color: var(--bg-card); padding: 8px 20px; border-radius: 20px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .btn-cust { background: transparent; border: 1px solid var(--text-main); color: var(--text-main); padding: 7px 15px; border-radius: 20px; font-size: 0.8rem; margin-right: 5px; cursor: pointer; }
 
-        /* --- 6. BLOG SECTION (OUR HERITAGE) - Now Full Width Below Menu --- */
-        .blog-section { 
-            padding: 80px 20px; 
-            background: var(--section-bg-dark); 
-            position: relative; 
-            z-index: 2; 
+        /* --- 6. SPLIT SECTION (HERITAGE & BIRTHDAY) --- */
+        .split-section-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows stacking on mobile */
+            background: var(--section-bg-dark);
+            position: relative;
+            z-index: 2;
         }
+
+        .half-section {
+            width: 50%;
+            padding: 80px 40px;
+            box-sizing: border-box;
+        }
+
+        .heritage-side {
+            border-right: 2px solid var(--orange);
+        }
+
+        .birthday-side {
+            background: var(--bg-body); /* Slightly different bg */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
         .section-title { text-align: center; font-size: 3rem; color: var(--orange); margin-bottom: 40px; }
         
         .blog-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 40px; 
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 1fr; 
+            gap: 30px; 
         }
         
-        .blog-card { background: var(--bg-card); padding: 30px; border-radius: 15px; box-shadow: var(--shadow); }
-        .blog-inner-image { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+        .blog-card { background: var(--bg-card); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); }
+        .blog-inner-image { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
         .blog-tabs { display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid var(--text-muted); padding-bottom: 10px; }
         .tab-btn { background: none; border: none; color: var(--text-muted); font-weight: bold; cursor: pointer; font-size: 1rem; padding: 5px 10px; }
         .tab-btn.active { color: var(--orange); border-bottom: 2px solid var(--orange); }
         .tab-content { display: none; animation: fadeIn 0.5s ease; }
         .tab-content.active { display: block; }
         .tab-content p { line-height: 1.8; color: var(--text-main); font-size: 1rem; }
+
+        .birthday-content h3 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 20px; font-family: var(--font-head); }
+        .birthday-content p { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 30px; }
+        .birthday-btn { background: var(--orange); color: black; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.3s; }
+        .birthday-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 159, 28, 0.5); }
 
         /* --- 6.5. OUR PALACE SECTION --- */
         .palace-section { padding: 80px 20px; background: var(--bg-body); position: relative; z-index: 2; text-align: center; }
@@ -230,75 +255,50 @@
         /* --- 8. FOOTER --- */
         footer { background: #111; color: white; padding: 60px 5% 20px; position: relative; z-index: 2; }
         .footer-content { display: flex; flex-direction: column; align-items: center; max-width: 1200px; margin: 0 auto; gap: 30px; }
-        
-        /* Map Container */
         .map-container { width: 100%; height: 250px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid var(--orange); }
-        
         .footer-info { text-align: center; }
         .footer-info h4 { color: var(--orange); font-size: 2.5rem; margin-bottom: 10px; font-family: 'Yellowtail', cursive; }
         .footer-info p { font-size: 1.2rem; color: #ccc; margin-bottom: 5px; }
-        
-        /* Social Links */
         .social-links { margin-top: 20px; display: flex; gap: 25px; justify-content: center; }
         .social-btn { color: white; font-size: 1.8rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.1); }
         .social-btn:hover { background: var(--orange); color: black; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(255, 159, 28, 0.4); }
-
         .admin-bar { margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.8rem; color: #666; width: 100%; }
         .btn-link { background: none; border: none; color: #888; cursor: pointer; transition: 0.3s; }
         .btn-link:hover { color: var(--orange); }
 
-        /* --- 9. ADMIN SYSTEM (REAL) --- */
+        /* --- ADMIN & MODALS --- */
         .admin-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 4000; display: none; justify-content: center; align-items: center; }
         .admin-login-box { background: var(--bg-card); width: 90%; max-width: 400px; padding: 40px; border-radius: 15px; text-align: center; border: 2px solid var(--orange); }
         .admin-input { width: 100%; padding: 12px; margin: 20px 0; border-radius: 5px; background: var(--bg-body); border: 1px solid var(--text-muted); color: var(--text-main); font-size: 1rem; }
-        
         .admin-dashboard { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-body); z-index: 4000; display: none; overflow-y: auto; padding: 20px; }
         .dash-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--orange); margin-bottom: 30px; }
         .dash-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
         .stat-card { background: var(--bg-card); padding: 20px; border-radius: 10px; border-left: 5px solid var(--orange); }
         .stat-val { font-size: 2.5rem; font-weight: bold; color: var(--text-main); }
         .stat-label { color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-        
         .menu-editor-table { width: 100%; border-collapse: collapse; color: var(--text-main); margin-top: 20px; }
         .menu-editor-table th, .menu-editor-table td { padding: 10px; border-bottom: 1px solid #333; text-align: left; }
         .menu-editor-table th { background: #222; color: var(--orange); }
         .edit-btn-small { background: var(--text-main); color: black; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
-        
         .admin-edit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 5000; display: none; justify-content: center; align-items: center; }
         .edit-form { background: var(--bg-card); padding: 30px; border-radius: 10px; width: 95%; max-width: 450px; border: 1px solid var(--orange); max-height: 90vh; overflow-y: auto; }
         .edit-label { display: block; color: var(--orange); margin-bottom: 5px; font-weight: bold; margin-top: 15px; }
 
-        /* --- 10. MODAL & CART --- */
+        /* --- MODAL & CART --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; display: none; justify-content: center; align-items: center; }
         .modal { background: var(--bg-card); width: 95%; max-width: 500px; max-height: 85vh; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; animation: popUp 0.3s ease; }
         .modal-header { padding: 15px; background: var(--orange); color: white; display: flex; justify-content: space-between; align-items: center; }
         .modal-body { padding: 20px; overflow-y: auto; color: var(--text-main); }
-        
         .opt-label { font-weight: bold; display: block; margin-bottom: 10px; font-size: 1.1rem; color: var(--orange); }
-        .size-select { 
-            width: 100%; padding: 12px; margin-bottom: 25px; border-radius: 8px; 
-            background: var(--bg-body); color: var(--text-main); border: 1px solid var(--text-muted); font-size: 1rem;
-        }
-
+        .size-select { width: 100%; padding: 12px; margin-bottom: 25px; border-radius: 8px; background: var(--bg-body); color: var(--text-main); border: 1px solid var(--text-muted); font-size: 1rem; }
         .topping-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
-        
-        .topping-item { 
-            display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
-            padding: 12px; background: var(--bg-body); 
-            border: 1px solid var(--text-muted); border-radius: 8px; 
-            cursor: pointer; transition: 0.3s; position: relative; user-select: none;
-        }
+        .topping-item { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 12px; background: var(--bg-body); border: 1px solid var(--text-muted); border-radius: 8px; cursor: pointer; transition: 0.3s; position: relative; user-select: none; }
         .topping-item:hover { border-color: var(--orange); }
-        .topping-item.selected { 
-            background: rgba(255, 159, 28, 0.15); border-color: var(--orange); 
-            box-shadow: 0 0 10px rgba(255, 159, 28, 0.2);
-        }
+        .topping-item.selected { background: rgba(255, 159, 28, 0.15); border-color: var(--orange); box-shadow: 0 0 10px rgba(255, 159, 28, 0.2); }
         .top-name { font-weight: bold; font-size: 0.95rem; }
         .top-price { font-size: 0.8rem; color: var(--text-muted); margin-top: 3px; }
         .topping-item.selected .top-price { color: var(--orange); }
-
         .modal-footer { padding: 15px; border-top: 1px solid var(--text-muted); display: flex; justify-content: space-between; align-items: center; background: var(--bg-body); }
-
         .cart-sidebar { position: fixed; top: 0; right: -100%; width: 100%; max-width: 350px; height: 100%; background: var(--bg-card); z-index: 3000; transition: 0.3s; display: flex; flex-direction: column; box-shadow: -5px 0 20px rgba(0,0,0,0.5); }
         .cart-sidebar.open { right: 0; }
         .cart-header { padding: 20px; background: var(--orange); color: white; display: flex; justify-content: space-between; }
@@ -306,8 +306,6 @@
         .cart-item { margin-bottom: 15px; border-bottom: 1px solid var(--text-muted); padding-bottom: 10px; }
         .cart-footer { padding: 20px; background: var(--bg-body); color: var(--text-main); }
         .btn-whatsapp { width: 100%; padding: 15px; background: #25D366; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 8px; }
-
-        /* --- 11. FLOATING BUTTONS --- */
         .floating-btn-container { position: fixed; bottom: 30px; right: 30px; z-index: 2000; display: flex; flex-direction: column; gap: 15px; }
         .float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 28px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); text-decoration: none; transition: 0.3s; }
         .float-btn:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
@@ -329,6 +327,10 @@
             .palace-img { height: 200px; }
             .logo-img { height: 70px; width: 70px; } 
             .logo-tagline { display: none; } 
+            
+            /* Stack the split section on mobile */
+            .half-section { width: 100%; border-right: none; padding: 40px 20px; }
+            .heritage-side { border-bottom: 2px solid var(--orange); }
         }
     </style>
 </head>
@@ -389,7 +391,7 @@
             <img class="logo-img" src="WhatsApp Image 2026-02-03 at 8.53.15 PM.jpeg" alt="Pizza Palace Logo">
             <div class="logo-text">
                 PIZZA <span>PALACE</span> 
-                <span class="logo-tagline">| The Royal Taste</span>
+                <span class="logo-tagline">| The Real Taste</span>
             </div>
         </div>
         <div class="nav-actions">
@@ -400,7 +402,6 @@
     </nav>
 
     <header class="hero">
-        <p class="hero-sub">THE REAL TASTE & QUALITY</p>
         <h1>WELCOME TO PIZZA</h1>
         
         <div class="hero-img-container">
@@ -417,28 +418,45 @@
         <div class="container" id="main-menu-container"></div>
     </section>
 
-    <section class="blog-section">
-        <h2 class="section-title">OUR HERITAGE</h2>
-        <div class="blog-grid">
-            <div class="blog-card">
-                <h3>HISTORY OF PIZZA</h3>
-                <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=800&q=80" alt="Italian Pizza" class="blog-inner-image">
-                <div class="blog-tabs"><button class="tab-btn active" onclick="openTab(event, 'pizza-eng')">English</button><button class="tab-btn" onclick="openTab(event, 'pizza-hin')">हिंदी</button></div>
-                <div id="pizza-eng" class="tab-content active">
-                    <p>The story of pizza is a journey that begins in antiquity but finds its true soul in the bustling streets of Naples, Italy. While flatbreads with toppings have sustained civilizations for millennia—from the Persians to the Greeks—it was in the 18th century that the modern pizza was born. Initially regarded as a dish for the poor.</p>
+    <div class="split-section-container">
+        
+        <div class="half-section heritage-side">
+            <h2 class="section-title" style="text-align: left;">OUR HERITAGE</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h3>HISTORY OF PIZZA</h3>
+                    <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=800&q=80" alt="Italian Pizza" class="blog-inner-image">
+                    <div class="blog-tabs"><button class="tab-btn active" onclick="openTab(event, 'pizza-eng')">English</button><button class="tab-btn" onclick="openTab(event, 'pizza-hin')">हिंदी</button></div>
+                    <div id="pizza-eng" class="tab-content active">
+                        <p>The story of pizza is a journey that begins in antiquity but finds its true soul in the bustling streets of Naples, Italy.</p>
+                    </div>
+                    <div id="pizza-hin" class="tab-content"><p>पिज़्ज़ा की कहानी एक ऐसी यात्रा है जो प्राचीन काल में शुरू होती है लेकिन अपनी असली आत्मा इटली के नेपल्स की हलचल भरी सड़कों पर पाती है।</p></div>
                 </div>
-                <div id="pizza-hin" class="tab-content"><p>पिज़्ज़ा की कहानी एक ऐसी यात्रा है जो प्राचीन काल में शुरू होती है लेकिन अपनी असली आत्मा इटली के नेपल्स की हलचल भरी सड़कों पर पाती है।</p></div>
-            </div>
-            
-            <div class="blog-card">
-                <h3>HISTORY OF CHEESE</h3>
-                <img src="blog.jpg" alt="Cheese" class="blog-inner-image">
-                <div class="blog-tabs"><button class="tab-btn active" onclick="openTab(event, 'cheese-eng')">English</button><button class="tab-btn" onclick="openTab(event, 'cheese-hin')">हिंदी</button></div>
-                <div id="cheese-eng" class="tab-content active"><p>The history of cheese is a tale as old as civilization itself, predating recorded history. It is believed to have been discovered accidentally around 8000 BCE, likely by nomadic herdsmen in the Fertile Crescent.</p></div>
-                <div id="cheese-hin" class="tab-content"><p>पनीर का इतिहास सभ्यता जितना ही पुराना है, जो लिखित इतिहास से भी पहले का है। ऐसा माना जाता है कि इसकी खोज लगभग 8000 ईसा पूर्व में गलती से हुई थी।</p></div>
+                
+                <div class="blog-card">
+                    <h3>HISTORY OF CHEESE</h3>
+                    <img src="blog.jpg" alt="Cheese" class="blog-inner-image">
+                    <div class="blog-tabs"><button class="tab-btn active" onclick="openTab(event, 'cheese-eng')">English</button><button class="tab-btn" onclick="openTab(event, 'cheese-hin')">हिंदी</button></div>
+                    <div id="cheese-eng" class="tab-content active"><p>The history of cheese is a tale as old as civilization itself, predating recorded history.</p></div>
+                    <div id="cheese-hin" class="tab-content"><p>पनीर का इतिहास सभ्यता जितना ही पुराना है, जो लिखित इतिहास से भी पहले का है।</p></div>
+                </div>
             </div>
         </div>
-    </section>
+
+        <div class="half-section birthday-side">
+            <div class="birthday-content">
+                <i class="fas fa-birthday-cake" style="font-size: 4rem; color: var(--orange); margin-bottom: 20px;"></i>
+                <h3>CELEBRATE WITH US</h3>
+                <p>
+                    We also conduct birthday parties in our restro! Pizza Palace is the perfect venue for your special gatherings. 
+                    With our delicious menu, cozy ambiance, and customizable party packages, we make sure your celebration is unforgettable.
+                    Gather your friends and family, and let us handle the rest while you enjoy the royal taste.
+                </p>
+                <a href="https://wa.me/919793567386?text=Hi, I want to book a birthday party!" class="birthday-btn">BOOK A PARTY</a>
+            </div>
+        </div>
+
+    </div>
 
     <section class="palace-section">
         <h2 class="section-title">OUR PALACE</h2>

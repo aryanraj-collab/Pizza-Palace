@@ -48,7 +48,7 @@
             background: var(--nav-bg); backdrop-filter: blur(10px);
             border-bottom: 2px solid var(--orange); box-shadow: var(--shadow);
             transition: 0.3s;
-            height: 110px; /* Increased height for larger logo */
+            height: 100px;
         }
         
         .logo-container { 
@@ -56,11 +56,12 @@
             align-items: center; 
             gap: 15px; 
             white-space: nowrap; 
+            /* Added min-width to ensure it doesn't collapse too much */
+            min-width: 0; 
         }
         
         .logo-img { 
-            /* INCREASED SIZE */
-            height: 100px; width: 100px; border-radius: 50%;
+            height: 80px; width: 80px; border-radius: 50%;
             object-fit: cover; border: 3px solid var(--orange); 
             box-shadow: 0 0 20px rgba(255, 159, 28, 0.6); transition: 0.3s;
             flex-shrink: 0;
@@ -70,7 +71,6 @@
         .logo-text { 
             font-family: var(--font-head); 
             color: var(--orange); 
-            /* INCREASED FONT SIZE */
             font-size: 3rem; 
             letter-spacing: 1px;
             font-weight: bold; 
@@ -83,7 +83,6 @@
         
         .logo-tagline { 
             font-family: 'Yellowtail', cursive; 
-            /* INCREASED FONT SIZE */
             font-size: 1.8rem; 
             color: var(--text-main); 
             font-weight: normal; 
@@ -94,7 +93,14 @@
             letter-spacing: 0;
         }
         
-        .nav-actions { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
+        .nav-actions { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            flex-shrink: 0; /* Prevents buttons from shrinking */
+            margin-left: 10px; /* Space between logo area and buttons */
+        }
+
         .theme-btn {
             background: none; border: 2px solid var(--orange); color: var(--text-main);
             width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
@@ -118,7 +124,7 @@
             position: relative; min-height: 85vh; 
             background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, var(--bg-body) 90%);
             display: flex; flex-direction: column; align-items: center; 
-            padding-top: 200px; /* Adjusted for larger navbar */
+            padding-top: 200px;
             text-align: center;
         }
         .hero h1 { font-family: var(--font-head); font-size: 5rem; color: var(--text-main); line-height: 1; z-index: 2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
@@ -147,15 +153,16 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-top: 30px;
-            margin-bottom: 60px; 
+            margin-bottom: 80px; 
             text-align: center;
-            z-index: 5;
+            z-index: 10; /* High z-index to stay above menu overlap */
             max-width: 90%;
             text-shadow: 0px 0px 20px rgba(255, 159, 28, 0.8);
             letter-spacing: 0.5px;
-            background: rgba(255, 159, 28, 0.9);
-            padding: 10px 20px;
+            background: rgba(255, 159, 28, 0.95);
+            padding: 15px 30px;
             border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
@@ -342,65 +349,79 @@
        
        /* RESPONSIVE LAYOUT (MOBILE FIXES) */
        @media (max-width: 1024px) { 
-            /* 1. NAVBAR FIXES */
+            /* 1. NAVBAR FIXES - CLEANED UP */
             .navbar { 
                 height: 80px; 
-                padding: 0 3%; 
-                flex-wrap: nowrap; /* Force single row */
+                padding: 0 10px; /* Reduced side padding slightly */
+                justify-content: space-between;
             }
             
             .logo-container { 
-                gap: 5px; 
-                flex: 1;
-                min-width: 0; 
+                gap: 8px; 
+                flex: 1; /* Allow to take space */
+                max-width: 75%; /* Ensure it doesn't push buttons off */
             }
             
-            /* INCREASED MOBILE LOGO SIZE */
             .logo-img { 
-                height: 65px; 
-                width: 65px; 
-                border-width: 2px; 
+                height: 55px; width: 55px; border-width: 2px; 
             }
             
-            /* INCREASED MOBILE FONT SIZE */
+            /* Text scaling to FIT beside logo without wrapping */
             .logo-text { 
-                font-size: 1.35rem; /* Larger for better visibility */
+                font-size: 1.1rem; /* Perfectly sized for mobile width */
                 white-space: nowrap; 
+                display: flex;
+                align-items: center;
+                overflow: hidden; /* Safety measure */
             }
             
             .logo-tagline { 
-                font-size: 1.1rem; /* Larger tagline */
+                font-size: 0.9rem; 
                 padding-left: 5px; 
                 margin-left: 5px; 
-                border-left: 2px solid var(--orange); 
+                border-left: 1px solid var(--orange); 
                 white-space: nowrap;
                 display: inline-block !important; /* Force show */
             }
 
-            .nav-actions { gap: 10px; }
+            .nav-actions { gap: 10px; margin-left: 5px; }
             .theme-btn, .cart-btn { width: 32px; height: 32px; font-size: 0.9rem; }
             .cart-count { top: -2px; right: -5px; font-size: 0.6rem; padding: 1px 4px; }
 
-            /* 2. HERO FIXES (Prevent Cutting) */
+            /* 2. HERO FIXES (Prevent Cutting of "Welcome") */
             .hero { 
-                padding-top: 170px; /* MORE padding to clear larger navbar/logo */
+                padding-top: 180px; /* Increased to ensure text is below navbar */
                 min-height: 70vh;
             } 
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 3rem; margin-top: 10px; }
             .hero-sub { font-size: 0.9rem; margin-bottom: 5px; }
             
-            .hero-bottom-text { font-size: 1.2rem; }
+            /* Bottom text pushed up slightly so brush border doesn't cover */
+            .hero-bottom-text { 
+                font-size: 1.2rem; 
+                margin-bottom: 100px; /* EXTRA space for brush border overlap */
+            }
 
-            /* 3. SECTION SPACING */
-            .menu-section { padding-top: 60px; margin-top: -60px; }
-            .category-header { font-size: 2.2rem; margin-top: 10px; margin-bottom: 15px; }
+            /* 3. MENU SECTION FIXES (Brush Border) */
+            .menu-section { 
+                padding-top: 80px; 
+                margin-top: -60px; /* Reduced negative margin to stop overlap */
+            }
+            .jagged-top {
+                height: 60px; /* Smaller brush border for mobile */
+                transform: translateY(-98%);
+            }
             
-            /* 4. SPLIT SECTION (Mobile Polish) */
+            .category-header { font-size: 2.2rem; margin-top: 10px; margin-bottom: 15px; }
+            .hero-img-container { width: 70vw; }
+            
+            /* 4. SPLIT SECTION (Mobile Stack) */
             .half-section { width: 100%; border-right: none; padding: 40px 20px; }
             .heritage-side { border-bottom: 2px solid var(--orange); }
             .birthday-content h3 { font-size: 2.5rem; }
             
             .palace-img { height: 200px; }
+            .section-title { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -458,7 +479,7 @@
 
     <nav class="navbar">
         <div class="logo-container">
-            <img class="logo-img" src="logo.jpg" alt="Pizza Palace Logo">
+            <img class="logo-img" src="WhatsApp Image 2026-02-03 at 8.53.15 PM.jpeg" alt="Pizza Palace Logo">
             <div class="logo-text">
                 PIZZA <span>PALACE</span> 
                 <span class="logo-tagline">| The Real Taste</span>
@@ -473,7 +494,7 @@
 
     <header class="hero">
         <p class="hero-sub">THE REAL TASTE & QUALITY</p>
-        <h1>WELCOME TO PIZZA PALACE</h1>
+        <h1>WELCOME TO PIZZA</h1>
         
         <div class="hero-img-container">
             <img class="hero-pizza" src="https://png.pngtree.com/png-clipart/20230412/original/pngtree-modern-kitchen-food-boxed-cheese-lunch-pizza-png-image_9048155.png" alt="Floating Pizza">

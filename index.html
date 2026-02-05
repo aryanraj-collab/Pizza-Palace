@@ -48,44 +48,50 @@
             background: var(--nav-bg); backdrop-filter: blur(10px);
             border-bottom: 2px solid var(--orange); box-shadow: var(--shadow);
             transition: 0.3s;
-            height: 90px; /* Fixed height to prevent cutting */
+            height: 110px; /* Increased height for larger logo */
         }
         
         .logo-container { 
             display: flex; 
             align-items: center; 
-            gap: 10px; 
-            overflow: hidden; 
+            gap: 15px; 
+            white-space: nowrap; 
         }
         
         .logo-img { 
-            height: 70px; width: 70px; border-radius: 50%;
-            object-fit: cover; border: 2px solid var(--orange); 
-            box-shadow: 0 0 15px rgba(255, 159, 28, 0.6); 
+            /* INCREASED SIZE */
+            height: 100px; width: 100px; border-radius: 50%;
+            object-fit: cover; border: 3px solid var(--orange); 
+            box-shadow: 0 0 20px rgba(255, 159, 28, 0.6); transition: 0.3s;
             flex-shrink: 0;
         }
+        .logo-img:hover { transform: scale(1.05); }
 
         .logo-text { 
             font-family: var(--font-head); 
             color: var(--orange); 
-            font-size: 2rem; 
+            /* INCREASED FONT SIZE */
+            font-size: 3rem; 
             letter-spacing: 1px;
             font-weight: bold; 
             display: flex; 
             align-items: center; 
+            gap: 10px; 
             white-space: nowrap; 
         }
         .logo-text span { color: var(--text-main); }
         
         .logo-tagline { 
             font-family: 'Yellowtail', cursive; 
-            font-size: 1.4rem; 
+            /* INCREASED FONT SIZE */
+            font-size: 1.8rem; 
             color: var(--text-main); 
             font-weight: normal; 
             margin-left: 8px; 
-            padding-left: 8px;
-            border-left: 2px solid var(--orange);
-            white-space: nowrap; 
+            padding-left: 10px;
+            border-left: 3px solid var(--orange);
+            text-transform: none; 
+            letter-spacing: 0;
         }
         
         .nav-actions { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
@@ -112,19 +118,15 @@
             position: relative; min-height: 85vh; 
             background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, var(--bg-body) 90%);
             display: flex; flex-direction: column; align-items: center; 
-            /* FIXED PADDING TO PREVENT CUTTING */
-            padding-top: 140px; 
+            padding-top: 200px; /* Adjusted for larger navbar */
             text-align: center;
         }
-        .hero h1 { 
-            font-family: var(--font-head); font-size: 5rem; color: var(--text-main); line-height: 1; z-index: 2; 
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
-        }
+        .hero h1 { font-family: var(--font-head); font-size: 5rem; color: var(--text-main); line-height: 1; z-index: 2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         
         .hero-sub { 
             color: var(--orange); 
             letter-spacing: 3px; 
-            margin-bottom: 5px; 
+            margin-bottom: 10px; 
             font-weight: bold; 
             z-index: 2; 
             text-transform: uppercase; 
@@ -133,7 +135,7 @@
 
         .hero-img-container { 
             width: 50vw; max-width: 600px; 
-            margin-top: 10px; 
+            margin-top: 20px; 
             z-index: 5; 
             animation: float 6s ease-in-out infinite; 
         }
@@ -141,10 +143,10 @@
 
         .hero-bottom-text {
             font-family: var(--font-body);
-            color: #000000; /* BLACK COLOR */
+            color: #000000;
             font-size: 1.8rem;
             font-weight: 700;
-            margin-top: 20px;
+            margin-top: 30px;
             margin-bottom: 60px; 
             text-align: center;
             z-index: 5;
@@ -348,26 +350,29 @@
             }
             
             .logo-container { 
-                gap: 8px; 
+                gap: 5px; 
                 flex: 1;
-                min-width: 0; /* Allow flex item to shrink */
+                min-width: 0; 
             }
             
+            /* INCREASED MOBILE LOGO SIZE */
             .logo-img { 
-                height: 50px; width: 50px; border-width: 2px; 
+                height: 65px; 
+                width: 65px; 
+                border-width: 2px; 
             }
             
-            /* Text scaling to FIT beside logo */
+            /* INCREASED MOBILE FONT SIZE */
             .logo-text { 
-                font-size: 1.1rem; /* Smaller font for mobile */
+                font-size: 1.35rem; /* Larger for better visibility */
                 white-space: nowrap; 
             }
             
             .logo-tagline { 
-                font-size: 0.9rem; /* Smaller font for mobile */
+                font-size: 1.1rem; /* Larger tagline */
                 padding-left: 5px; 
                 margin-left: 5px; 
-                border-left: 1px solid var(--orange); 
+                border-left: 2px solid var(--orange); 
                 white-space: nowrap;
                 display: inline-block !important; /* Force show */
             }
@@ -378,7 +383,7 @@
 
             /* 2. HERO FIXES (Prevent Cutting) */
             .hero { 
-                padding-top: 140px; /* More padding to clear navbar */
+                padding-top: 170px; /* MORE padding to clear larger navbar/logo */
                 min-height: 70vh;
             } 
             .hero h1 { font-size: 3rem; }
@@ -453,7 +458,7 @@
 
     <nav class="navbar">
         <div class="logo-container">
-            <img class="logo-img" src="logo.jpg" alt="Pizza Palace Logo">
+            <img class="logo-img" src="WhatsApp Image 2026-02-03 at 8.53.15 PM.jpeg" alt="Pizza Palace Logo">
             <div class="logo-text">
                 PIZZA <span>PALACE</span> 
                 <span class="logo-tagline">| The Real Taste</span>

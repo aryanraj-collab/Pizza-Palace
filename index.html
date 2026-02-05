@@ -49,12 +49,13 @@
             background: var(--nav-bg); backdrop-filter: blur(10px);
             border-bottom: 2px solid var(--orange); box-shadow: var(--shadow);
             transition: 0.3s;
+            height: 100px; /* Fixed height for desktop */
         }
         
         .logo-container { display: flex; align-items: center; gap: 15px; }
         
         .logo-img { 
-            height: 100px; width: 100px; border-radius: 50%;
+            height: 80px; width: 80px; border-radius: 50%;
             object-fit: cover; border: 3px solid var(--orange); 
             box-shadow: 0 0 20px rgba(255, 159, 28, 0.6); transition: 0.3s;
         }
@@ -64,11 +65,12 @@
             font-family: var(--font-head); 
             color: var(--orange); 
             font-size: 2.2rem; 
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-weight: bold; 
             display: flex; 
             align-items: center; 
             gap: 10px; 
+            white-space: nowrap; /* Prevent breaking */
         }
         .logo-text span { color: var(--text-main); }
         
@@ -107,11 +109,23 @@
         .hero {
             position: relative; min-height: 85vh; 
             background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, var(--bg-body) 90%);
-            display: flex; flex-direction: column; align-items: center; padding-top: 160px;
+            display: flex; flex-direction: column; align-items: center; 
+            padding-top: 180px; /* Space for desktop navbar */
             text-align: center;
         }
         .hero h1 { font-family: var(--font-head); font-size: 5rem; color: var(--text-main); line-height: 1; z-index: 2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         
+        /* New Subtitle Style */
+        .hero-sub { 
+            color: var(--orange); 
+            letter-spacing: 3px; 
+            margin-bottom: 10px; 
+            font-weight: bold; 
+            z-index: 2; 
+            text-transform: uppercase; 
+            font-size: 1.2rem;
+        }
+
         .hero-img-container { 
             width: 50vw; max-width: 600px; 
             margin-top: 20px; 
@@ -218,7 +232,7 @@
         
         .blog-grid { 
             display: grid; 
-            grid-template-columns: 1fr; /* Single column inside the half-width */
+            grid-template-columns: 1fr; 
             gap: 30px; 
         }
         
@@ -284,7 +298,11 @@
         .menu-editor-table th, .menu-editor-table td { padding: 10px; border-bottom: 1px solid #333; text-align: left; }
         .menu-editor-table th { background: #222; color: var(--orange); }
         .edit-btn-small { background: var(--text-main); color: black; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
-        
+        .admin-edit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 5000; display: none; justify-content: center; align-items: center; }
+        .edit-form { background: var(--bg-card); padding: 30px; border-radius: 10px; width: 95%; max-width: 450px; border: 1px solid var(--orange); max-height: 90vh; overflow-y: auto; }
+        .edit-label { display: block; color: var(--orange); margin-bottom: 5px; font-weight: bold; margin-top: 15px; }
+
+        /* --- MODAL & CART --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; display: none; justify-content: center; align-items: center; }
         .modal { background: var(--bg-card); width: 95%; max-width: 500px; max-height: 85vh; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; animation: popUp 0.3s ease; }
         .modal-header { padding: 15px; background: var(--orange); color: white; display: flex; justify-content: space-between; align-items: center; }
@@ -317,7 +335,26 @@
        
        /* RESPONSIVE LAYOUT */
        @media (max-width: 1024px) { 
-            .hero h1 { font-size: 3.5rem; } 
+            /* Fix nav height on mobile */
+            .navbar { height: auto; padding: 10px 5%; flex-wrap: wrap; }
+            
+            /* Compact logo layout for mobile */
+            .logo-container { flex-direction: row; text-align: left; gap: 10px; }
+            .logo-img { height: 50px; width: 50px; border-width: 2px; }
+            
+            /* Text scaling for mobile to prevent cutting */
+            .logo-text { font-size: 1.4rem; white-space: nowrap; }
+            .logo-tagline { font-size: 1.1rem; padding-left: 5px; margin-left: 5px; border-left: 1px solid var(--orange); }
+
+            /* Nav buttons smaller on mobile */
+            .theme-btn, .cart-btn { width: 35px; height: 35px; font-size: 1rem; }
+            .cart-count { top: -2px; right: -5px; font-size: 0.7rem; padding: 1px 5px; }
+
+            /* Increase hero padding so nav doesn't cover text */
+            .hero { padding-top: 140px; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero-sub { font-size: 1rem; margin-bottom: 5px; }
+            
             .menu-section { padding-top: 80px; margin-top: -80px; }
             .category-header { font-size: 2.5rem; margin-top: 10px; margin-bottom: 20px; }
             .hero-img-container { width: 70vw; }
@@ -325,16 +362,10 @@
             .section-title { font-size: 2.5rem; }
             .footer-content { grid-template-columns: 1fr; }
             .palace-img { height: 200px; }
-            .logo-img { height: 70px; width: 70px; } 
             
             /* Stack the split section on mobile */
             .half-section { width: 100%; border-right: none; padding: 40px 20px; }
             .heritage-side { border-bottom: 2px solid var(--orange); }
-            
-            /* Adjust layout for mobile logo */
-            .logo-container { flex-direction: column; text-align: center; gap: 5px; }
-            .logo-text { font-size: 1.8rem; flex-direction: column; gap: 0; }
-            .logo-tagline { border-left: none; border-top: 2px solid var(--orange); padding-top: 5px; margin-left: 0; padding-left: 0; }
         }
     </style>
 </head>
@@ -406,6 +437,7 @@
     </nav>
 
     <header class="hero">
+        <p class="hero-sub">THE REAL TASTE & QUALITY</p>
         <h1>WELCOME TO PIZZA</h1>
         
         <div class="hero-img-container">

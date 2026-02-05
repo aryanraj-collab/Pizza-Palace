@@ -111,8 +111,7 @@
             text-align: center;
         }
         .hero h1 { font-family: var(--font-head); font-size: 5rem; color: var(--text-main); line-height: 1; z-index: 2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        /* Removed hero-sub p tag as requested to move text to navbar */
-
+        
         .hero-img-container { 
             width: 50vw; max-width: 600px; 
             margin-top: 20px; 
@@ -121,20 +120,19 @@
         }
         .hero-pizza { width: 100%; height: auto; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6)); }
 
-        /* CENTERED TEXT BELOW PIZZA - UPDATED COLOR TO BLACK */
         .hero-bottom-text {
             font-family: var(--font-body);
-            color: #000000; /* CHANGED TO BLACK */
-            font-size: 1.8rem; /* Slightly larger for visibility */
+            color: #000000;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-top: 30px;
             margin-bottom: 60px; 
             text-align: center;
             z-index: 5;
             max-width: 90%;
-            text-shadow: 0px 0px 20px rgba(255, 159, 28, 0.8); /* Added glow for contrast against dark bg */
+            text-shadow: 0px 0px 20px rgba(255, 159, 28, 0.8);
             letter-spacing: 0.5px;
-            background: rgba(255, 159, 28, 0.9); /* Small background to ensure readability */
+            background: rgba(255, 159, 28, 0.9);
             padding: 10px 20px;
             border-radius: 50px;
         }
@@ -194,6 +192,7 @@
             background: var(--section-bg-dark);
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .half-section {
@@ -207,7 +206,7 @@
         }
 
         .birthday-side {
-            background: var(--bg-body); /* Slightly different bg */
+            background: var(--bg-body);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -219,7 +218,7 @@
         
         .blog-grid { 
             display: grid; 
-            grid-template-columns: 1fr; 
+            grid-template-columns: 1fr; /* Single column inside the half-width */
             gap: 30px; 
         }
         
@@ -230,11 +229,16 @@
         .tab-btn.active { color: var(--orange); border-bottom: 2px solid var(--orange); }
         .tab-content { display: none; animation: fadeIn 0.5s ease; }
         .tab-content.active { display: block; }
-        .tab-content p { line-height: 1.8; color: var(--text-main); font-size: 1rem; }
+        .tab-content p { 
+            line-height: 1.8; 
+            color: var(--text-main); 
+            font-size: 0.95rem; 
+            text-align: justify; 
+        }
 
-        .birthday-content h3 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 20px; font-family: var(--font-head); }
-        .birthday-content p { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 30px; }
-        .birthday-btn { background: var(--orange); color: black; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.3s; }
+        .birthday-content h3 { font-size: 3.5rem; color: var(--text-main); margin-bottom: 20px; font-family: var(--font-head); }
+        .birthday-content p { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 30px; max-width: 600px; }
+        .birthday-btn { background: var(--orange); color: black; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.3s; }
         .birthday-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 159, 28, 0.5); }
 
         /* --- 6.5. OUR PALACE SECTION --- */
@@ -266,9 +270,9 @@
         .btn-link { background: none; border: none; color: #888; cursor: pointer; transition: 0.3s; }
         .btn-link:hover { color: var(--orange); }
 
-        /* --- ADMIN & MODALS --- */
-        .admin-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 4000; display: none; justify-content: center; align-items: center; }
-        .admin-login-box { background: var(--bg-card); width: 90%; max-width: 400px; padding: 40px; border-radius: 15px; text-align: center; border: 2px solid var(--orange); }
+        /* --- MODAL, CART & ADMIN --- */
+        .admin-modal, .admin-edit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 4000; display: none; justify-content: center; align-items: center; }
+        .admin-login-box, .edit-form { background: var(--bg-card); width: 90%; max-width: 400px; padding: 40px; border-radius: 15px; text-align: center; border: 2px solid var(--orange); }
         .admin-input { width: 100%; padding: 12px; margin: 20px 0; border-radius: 5px; background: var(--bg-body); border: 1px solid var(--text-muted); color: var(--text-main); font-size: 1rem; }
         .admin-dashboard { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-body); z-index: 4000; display: none; overflow-y: auto; padding: 20px; }
         .dash-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--orange); margin-bottom: 30px; }
@@ -280,11 +284,7 @@
         .menu-editor-table th, .menu-editor-table td { padding: 10px; border-bottom: 1px solid #333; text-align: left; }
         .menu-editor-table th { background: #222; color: var(--orange); }
         .edit-btn-small { background: var(--text-main); color: black; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
-        .admin-edit-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 5000; display: none; justify-content: center; align-items: center; }
-        .edit-form { background: var(--bg-card); padding: 30px; border-radius: 10px; width: 95%; max-width: 450px; border: 1px solid var(--orange); max-height: 90vh; overflow-y: auto; }
-        .edit-label { display: block; color: var(--orange); margin-bottom: 5px; font-weight: bold; margin-top: 15px; }
-
-        /* --- MODAL & CART --- */
+        
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; display: none; justify-content: center; align-items: center; }
         .modal { background: var(--bg-card); width: 95%; max-width: 500px; max-height: 85vh; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; animation: popUp 0.3s ease; }
         .modal-header { padding: 15px; background: var(--orange); color: white; display: flex; justify-content: space-between; align-items: center; }
@@ -326,11 +326,15 @@
             .footer-content { grid-template-columns: 1fr; }
             .palace-img { height: 200px; }
             .logo-img { height: 70px; width: 70px; } 
-            .logo-tagline { display: none; } 
             
             /* Stack the split section on mobile */
             .half-section { width: 100%; border-right: none; padding: 40px 20px; }
             .heritage-side { border-bottom: 2px solid var(--orange); }
+            
+            /* Adjust layout for mobile logo */
+            .logo-container { flex-direction: column; text-align: center; gap: 5px; }
+            .logo-text { font-size: 1.8rem; flex-direction: column; gap: 0; }
+            .logo-tagline { border-left: none; border-top: 2px solid var(--orange); padding-top: 5px; margin-left: 0; padding-left: 0; }
         }
     </style>
 </head>
@@ -388,7 +392,7 @@
 
     <nav class="navbar">
         <div class="logo-container">
-            <img class="logo-img" src="logo.jpg" alt="Pizza Palace Logo">
+            <img class="logo-img" src="WhatsApp Image 2026-02-03 at 8.53.15 PM.jpeg" alt="Pizza Palace Logo">
             <div class="logo-text">
                 PIZZA <span>PALACE</span> 
                 <span class="logo-tagline">| The Real Taste</span>
@@ -428,29 +432,27 @@
                     <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=800&q=80" alt="Italian Pizza" class="blog-inner-image">
                     <div class="blog-tabs"><button class="tab-btn active" onclick="openTab(event, 'pizza-eng')">English</button><button class="tab-btn" onclick="openTab(event, 'pizza-hin')">हिंदी</button></div>
                     <div id="pizza-eng" class="tab-content active">
-                        <p>The story of pizza is a journey that begins in antiquity but finds its true soul in the bustling streets of Naples, Italy.</p>
+                        <p>The story of pizza is a journey that spans millennia, evolving from simple flatbreads consumed by ancient civilizations to the global phenomenon we know today. Its true soul was forged in the bustling streets of Naples, Italy, in the 18th century, where it began as a humble, affordable meal for the working class. The pivotal moment arrived in 1889 when Queen Margherita visited Naples, and pizzaiolo Raffaele Esposito created a pizza featuring tomatoes, mozzarella, and basil to honor the Italian flag. This culinary masterpiece, the Pizza Margherita, set the standard for authentic Italian pizza. Following World War II, returning soldiers brought their love for this dish back home, sparking an international explosion of flavor that has since conquered hearts worldwide.</p>
                     </div>
-                    <div id="pizza-hin" class="tab-content"><p>पिज़्ज़ा की कहानी एक ऐसी यात्रा है जो प्राचीन काल में शुरू होती है लेकिन अपनी असली आत्मा इटली के नेपल्स की हलचल भरी सड़कों पर पाती है।</p></div>
+                    <div id="pizza-hin" class="tab-content"><p>पिज़्ज़ा की कहानी एक ऐसी यात्रा है जो हजारों वर्षों तक फैली हुई है, जो प्राचीन सभ्यताओं द्वारा खाए जाने वाले साधारण फ्लैटब्रेड से लेकर आज हम जिस वैश्विक घटना को जानते हैं, तक विकसित हुई है। इसकी असली आत्मा 18वीं शताब्दी में इटली के नेपल्स की हलचल भरी सड़कों पर बनी थी, जहाँ इसकी शुरुआत मजदूर वर्ग के लिए एक विनम्र, किफायती भोजन के रूप में हुई थी। निर्णायक क्षण 1889 में आया जब रानी मार्गेरिटा ने नेपल्स का दौरा किया, और पिज्जाओलो राफेल एस्पोसिटो ने इतालवी झंडे के सम्मान में टमाटर, मोज़ेरेला और तुलसी वाला एक पिज़्ज़ा बनाया। इस पाक कृति, पिज़्ज़ा मार्गेरिटा ने प्रामाणिक इतालवी पिज़्ज़ा के लिए मानक स्थापित किया। द्वितीय विश्व युद्ध के बाद, लौटने वाले सैनिक इस व्यंजन के लिए अपने प्यार को घर ले आए, जिससे स्वाद का एक अंतरराष्ट्रीय विस्फोट हुआ जिसने तब से दुनिया भर में दिलों को जीत लिया है।</p></div>
                 </div>
                 
                 <div class="blog-card">
                     <h3>HISTORY OF CHEESE</h3>
                     <img src="blog.jpg" alt="Cheese" class="blog-inner-image">
                     <div class="blog-tabs"><button class="tab-btn active" onclick="openTab(event, 'cheese-eng')">English</button><button class="tab-btn" onclick="openTab(event, 'cheese-hin')">हिंदी</button></div>
-                    <div id="cheese-eng" class="tab-content active"><p>The history of cheese is a tale as old as civilization itself, predating recorded history.</p></div>
-                    <div id="cheese-hin" class="tab-content"><p>पनीर का इतिहास सभ्यता जितना ही पुराना है, जो लिखित इतिहास से भी पहले का है।</p></div>
+                    <div id="cheese-eng" class="tab-content active"><p>The history of cheese is a tale as old as civilization itself, predating recorded history by thousands of years. It is believed to have been discovered accidentally around 8000 BCE, likely by nomadic herdsmen in the Fertile Crescent who stored milk in containers made from the stomachs of ruminants. The naturally occurring enzymes, combined with the heat of their journeys, caused the milk to curdle, separating into curds and whey—a happy accident that created a nutrient-dense, preserved food source. Over centuries, the art of cheesemaking was refined by the Romans and later perfected in the monasteries of Medieval Europe, leading to the incredible variety of textures and flavors we cherish today.</p></div>
+                    <div id="cheese-hin" class="tab-content"><p>पनीर का इतिहास सभ्यता जितना ही पुराना है, जो लिखित इतिहास से हजारों साल पहले का है। ऐसा माना जाता है कि इसकी खोज लगभग 8000 ईसा पूर्व में गलती से हुई थी, संभवतः उपजाऊ क्रिसेंट में खानाबदोश चरवाहों द्वारा जो जुगाली करने वाले जानवरों के पेट से बने बर्तनों में दूध जमा करते थे। प्राकृतिक रूप से पाए जाने वाले एंजाइमों ने, उनकी यात्रा की गर्मी के साथ मिलकर, दूध को दही में बदल दिया, जिससे वह दही और मट्ठे में अलग हो गया - एक सुखद दुर्घटना जिसने पोषक तत्वों से भरपूर, संरक्षित भोजन स्रोत बनाया। सदियों से, पनीर बनाने की कला को रोमनों द्वारा परिष्कृत किया गया और बाद में मध्ययुगीन यूरोप के मठों में इसे पूर्ण किया गया, जिससे आज हम जिन अविश्वसनीय किस्मों और स्वादों को पसंद करते हैं, उनका जन्म हुआ।</p></div>
                 </div>
             </div>
         </div>
 
         <div class="half-section birthday-side">
             <div class="birthday-content">
-                <i class="fas fa-birthday-cake" style="font-size: 4rem; color: var(--orange); margin-bottom: 20px;"></i>
+                <i class="fas fa-birthday-cake" style="font-size: 5rem; color: var(--orange); margin-bottom: 25px;"></i>
                 <h3>CELEBRATE WITH US</h3>
                 <p>
-                    We also conduct birthday parties in our restro! Pizza Palace is the perfect venue for your special gatherings. 
-                    With our delicious menu, cozy ambiance, and customizable party packages, we make sure your celebration is unforgettable.
-                    Gather your friends and family, and let us handle the rest while you enjoy the royal taste.
+                    Make your special day truly unforgettable by hosting your birthday party at Pizza Palace! We believe that every birthday deserves a royal celebration, and our restaurant provides the perfect backdrop for creating lasting memories with your loved ones. Whether you are planning an intimate gathering with close friends or a grand bash with the whole family, our dedicated team is here to handle every detail. From our mouth-watering, fresh-dough pizzas and creamy pastas to our festive ambiance and personalized service, we ensure a seamless and joyous experience. Book with us today and let the "Real Taste" be the highlight of your celebration!
                 </p>
                 <a href="https://wa.me/919793567386?text=Hi, I want to book a birthday party!" class="birthday-btn">BOOK A PARTY</a>
             </div>
@@ -465,7 +467,7 @@
             <img src="2.jpg" alt="Interior 1" class="palace-img">
             <img src="3.jpg" alt="Interior 2" class="palace-img">
         </div>
-        <p class="palace-content">Welcome to Pizza Palace, a sanctuary where culinary passion meets royal hospitality. We believe that dining is not just about eating; it is an immersive experience that engages all the senses. Our 'Palace' is designed to be your home away from home, featuring a warm, rustic ambiance that invites you to relax, unwind, and create lasting memories with loved ones.</p>
+        <p class="palace-content">Welcome to Pizza Palace, a sanctuary where culinary passion meets royal hospitality. We believe that dining is not just about eating; it is an immersive experience that engages all the senses. Our 'Palace' is designed to be your home away from home, featuring a warm, rustic ambiance that invites you to relax, unwind, and create lasting memories with loved ones. Every corner of our establishment reflects our commitment to excellence, from the carefully curated decor to the smiles of our attentive staff. We take immense pride in our kitchen, where we use only the freshest, locally sourced vegetables, authentic cheeses, and hand-tossed dough prepared daily. Whether you are here for a quick bite, a romantic dinner, or a joyous family celebration, we promise to treat you like royalty, serving you flavors that are nothing short of majestic</p>
     </section>
 
     <section class="reviews-section">
